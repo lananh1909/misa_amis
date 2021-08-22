@@ -1,0 +1,12 @@
+.page-container {
+    height: 100vh;
+}
+
+.the-menu {
+    width: 180px;
+    flex: 0 0 180px;
+    height: 100%;
+}
+.the-content {
+    width: calc(100% - 180px);
+}

@@ -1,0 +1,92 @@
+/* custom select css  */
+.my-custom-select{
+    display: flex;
+    height: 32px;
+    border-radius: 2px;
+    border: 1px solid #babec5;
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+}
+.my-custom-select:hover:not(:focus){
+    outline: 1px solid #e2e2e2;
+}
+.my-custom-select input {
+    display: block;
+    font-size: 13px;
+    width: calc(100% - 32px);
+    border: none;
+    padding: 5px 0 5px 10px;
+}
+.my-custom-select input:focus{
+    outline: none;
+}
+
+.select-arrow-active.my-custom-select{
+    border-color: #019160 !important;
+}
+.error.my-custom-select{
+    border-color: red !important;
+}
+.select-arrow-active .select-icon div{
+    transform: rotate(180deg);
+    transition: 0.5s;
+}
+.select-icon div{
+    transition: 0.5s;
+}
+.select-items .select-item {
+    color: #000;
+    padding: 8px 0 8px 8px;
+    height: 32px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+.select-items {
+    position: absolute;
+    background-color: #fff;
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+    z-index: 99;
+    border: 1px solid #babec5;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 -8px 34px 0 rgb(0 0 0 / 5%);
+}
+.select-hide {
+    display: none;
+}
+.select-items div {
+    width: 100%;
+}
+.select-items div:hover, .same-as-selected div{
+    background-color: #ebedf0;
+}
+.hover {
+    background-color: #ebedf0 !important;
+}
+.same-as-selected .select-item{
+    color: #35bf22 !important;
+}
+
+.hide {
+    display: none;
+}
+
+.select-icon{
+    width: 32px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.select-icon:hover{
+    background-color: #e0e0e0;
+}
+
+.select-selected .clearBtn {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    cursor: pointer;
+}

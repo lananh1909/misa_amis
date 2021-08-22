@@ -1,0 +1,56 @@
+.header {
+    height: 48px;
+    align-items: center;
+    width: 100%;
+    background-color: #fff;
+}
+.header-icon {
+    margin: 0 10px;
+}
+
+.header-icon.toggle-menu-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -844px -31px;
+}
+
+.header-branch-name {
+    padding-left: 10px;
+    font-size: 14px;
+    color: #111;
+    font-weight: 600;
+}
+
+.header-branch-icon {
+    width: 14px;
+    height: 14px;
+    transform: rotate(90deg);
+}
+.notification {
+    width: 24px;
+    height: 24px;
+}
+
+.account-info {
+    padding-right: 20px;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.user-name {
+    padding: 5px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #111;
+}
+
+.chevron-down {
+    width: 14px;
+    height: 14px;
+}
+

@@ -1,0 +1,25 @@
+.employee-container {
+    background-color: #f4f5f8;
+    height: calc(100vh - 48px);
+    padding-left: 20px;
+}
+.employee-header {
+    padding: 24px 30px 24px 0;
+}
+
+.employee-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111;
+}
+.content-container {
+    padding-right: 30px;
+}
+.employee-content {
+    background-color: #fff;
+    max-height: calc(100vh - 130px);
+}
+.employee-action {
+    padding: 16px 16px 10px;
+    height: 72px;
+}

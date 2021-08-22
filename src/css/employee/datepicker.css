@@ -1,0 +1,51 @@
+.date-input-label {
+    font-size: 12px;
+    font-weight: 700;
+    padding-bottom: 4px;
+    display: block;
+}
+.date-search-box {
+    width: 100%;
+}
+
+.date-search-box .input-date {
+    height: 32px;
+    border-radius: 2px;
+    border: 1px solid #babec5;
+    width: 100%;
+    background-color: #fff;
+}
+.date-search-box input {
+    display: block;
+    font-size: 13px;
+    width: calc(100% - 32px);
+    border: none;
+    padding: 5px 0 5px 10px;
+}
+
+.date-search-box .input-date:hover:not(:focus){
+    outline: 1px solid #e2e2e2;
+}
+
+.date-search-box .input-date:focus-within{
+    border-color: #2ca01c;
+}
+
+.input-date input:focus {
+    outline: none;
+    /* border-color: #2ca01c; */
+}
+
+.date-search-box.error input {
+    border-color: red !important;
+}
+
+.datepick-icon {
+    width: 32px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.datepick-icon:hover{
+    background-color: #e0e0e0;
+}

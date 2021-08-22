@@ -1,0 +1,42 @@
+.paging-container {
+    min-height: 46px;
+    padding-left: 20px;
+    padding-right: 90px;
+}
+
+.paging-right {
+    margin-left: auto;
+}
+.record-in-page {
+    margin: 0 16px;
+}
+
+.change-page.prev {
+    margin-right: 10px;
+}
+.change-page.next {
+    margin-left: 10px;
+}
+
+.change-page {
+    cursor: pointer;
+}
+
+.change-page.disable {
+    color: #9e9e9e;
+    cursor: default !important;
+}
+
+.pageNum {
+    padding: 0 6.5px;
+    cursor: pointer;
+}
+
+.pageNum.page-hide {
+    cursor: default;
+}
+
+.current-page {
+    border: 1px solid #e0e0e0;
+    font-weight: 700;
+}

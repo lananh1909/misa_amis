@@ -1,0 +1,54 @@
+/* nút sửa */
+
+.edit-btn {
+    color: #0075c0;
+    font-weight: 600;
+    padding: 6px 0 6px 16px;
+}
+
+/* mũi tên */
+.btn-arrow {
+    width: 46px;
+    height: 36px;
+    padding: 8px 10px 8px 10px;
+}
+
+.action-btn {
+    cursor: pointer;
+}
+
+.action-btn:active{
+    border: 1px solid #0075c0;
+}
+.action-btn:focus{
+    border: 1px solid #0075c0;
+}
+/* context  */
+.dropdown-content {
+    position: fixed;
+    background: #fff;
+    padding: 2px 1px;
+    border-radius: 2px;
+    border: 1px solid #babec5;
+    z-index: 999;
+}
+
+.dropdown-item {
+    white-space: nowrap;
+    transition: all .2s ease;
+    text-align: left;
+    width: 100%;
+    min-width: 100px;
+    font-weight: 400!important;
+    font-size: 13px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    color: #43ca54;
+    background-color: #e8e9ec;
+}

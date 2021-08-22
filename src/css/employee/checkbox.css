@@ -1,0 +1,13 @@
+.check-box {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #afafaf;
+    border-radius: 2px;
+    display: inline-block;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.check-box.active {
+    border-color: #2ca01c;
+}

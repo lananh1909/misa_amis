@@ -1,0 +1,146 @@
+.menu-items {
+    padding-top: 14px;
+    overflow: auto;
+    height: calc(100vh - 48px);
+}
+.menu-items::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+.router-link-exact-active .menu-item {
+    border-left-color: #2ca01c;
+    font-weight: 700;
+    width: 100%;
+}
+.router-link-exact-active .menu-item {
+    background: #5d5d61;
+}
+.menu-item {
+    height: 42px;
+    padding: 0 14px 0 8px;
+    border-left: 6px solid transparent;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background: #5d5d61;
+}
+.menu-item .icon {
+    height: 24px;
+    width: 24px;
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat;
+    margin-right: 8px;
+}
+.menu-item .icon.dash-board {
+    background-position: -30px -1628px;
+}
+.menu-item .icon.cash {
+    background-position: -73px -1628px;
+}
+.menu-item .icon.bank {
+    background-position: -117px -1628px;
+}
+.menu-item .icon.buy {
+    background-position: -161px -1628px;
+}
+.menu-item .icon.sell {
+    background-position: -204px -1628px;
+}
+.menu-item .icon.invoice {
+    background-position: -249px -1628px;
+}
+.menu-item .icon.stock {
+    background-position: -291px -1628px;
+}
+.menu-item .icon.tool {
+    background-position: -336px -1628px;
+}
+.menu-item .icon.fixed-assets {
+    background-position: -378px -1630px;
+}
+.menu-item .icon.tax {
+    background-position: -423px -1630px;
+}
+.menu-item .icon.price {
+    background-position: -467px -1628px;
+}
+.menu-item .icon.general {
+    background-position: -510px -1628px;
+}
+.menu-item .icon.budget {
+    background-position: -378px -1659px;
+}
+.menu-item .icon.report {
+    background-position: -547px -1628px;
+}
+.menu-item .icon.finance {
+    background-position: -204px -1664px;
+}
+.router-link-exact-active .menu-item .icon.dash-board {
+    background-position: -30px -1585px;
+}
+.router-link-exact-active .menu-item .icon.cash {
+    background-position: -73px -1585px;
+}
+.router-link-exact-active .menu-item .icon.bank {
+    background-position: -117px -1585px;
+}
+.router-link-exact-active .menu-item .icon.buy {
+    background-position: -161px -1585px;
+}
+.router-link-exact-active .menu-item .icon.sell {
+    background-position: -204px -1585px;
+}
+.router-link-exact-active .menu-item .icon.invoice {
+    background-position: -251px -1630px;
+}
+.router-link-exact-active .menu-item .icon.stock {
+    background-position: -292px -1630px;
+}
+.router-link-exact-active .menu-item .icon.tool {
+    background-position: -337px -1630px;
+}
+.router-link-exact-active .menu-item .icon.fixed-assets {
+    background-position: -380px -1630px;
+}
+.router-link-exact-active .menu-item .icon.tax {
+    background-position: -425px -1630px;
+}
+.router-link-exact-active .menu-item .icon.price {
+    background-position: -469px -1630px;
+}
+.router-link-exact-active .menu-item .icon.general {
+    background-position: -512px -1630px;
+}
+.router-link-exact-active .menu-item .icon.budget {
+    background-position: -380px -1660px;
+}
+.router-link-exact-active .menu-item .icon.report {
+    background-position: -548px -1630px;
+}
+.router-link-exact-active .menu-item .icon.finance {
+    background-position: -204px -1660px;
+}
+.menu-container {
+    background-color: #393a3d;
+    height: 100%;
+}
+.amis-logo {
+    height: 48px;
+    width: 100%;
+    padding: 24px;
+    align-items: center;
+    justify-content: center;
+}
+.amis-logo .menu-opiton {
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -426px -88px;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.amis-logo .logo {
+    height: 32px;
+}

@@ -1,0 +1,32 @@
+.input-label {
+    font-size: 12px;
+    font-weight: 700;
+    padding-bottom: 4px;
+    display: block;
+}
+.search-box {
+    width: 100%;
+}
+.search-box input {
+    display: block;
+    font-size: 13px;
+    height: 32px;
+    padding: 6px 10px;
+    border-radius: 2px;
+    border: 1px solid #babec5;
+    width: 100%;
+    background-color: #fff;
+}
+
+.search-box input:hover:not(:focus){
+    outline: 1px solid #e2e2e2;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: #2ca01c;
+}
+
+.search-box.error input {
+    border-color: red !important;
+}

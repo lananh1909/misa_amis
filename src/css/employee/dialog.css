@@ -1,0 +1,46 @@
+.myDialog{
+    /* display: none; */
+    position: fixed;
+    z-index: 150;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.my-dialog-content {
+    background-color: #ffffff;
+    width: 500px;
+    top: 50vh;
+    left: 50vw;
+    transform: translateX(-50%) translateY(-50%);
+    position: relative;
+    border-radius: 4px;
+    padding: 32px;
+    animation-name: slide-down;
+    /* animation-fill-mode: forwards; */
+    animation-duration: 0.5s;
+}
+
+.dialog-line {
+    width: 100%;
+    border-top: 1px solid #b8bcc3;
+    margin-bottom: 20px;
+}
+
+.confirm-text {
+    padding: 12px 0 0 16px;
+    margin: 0 0 32px;
+}
+
+.bottom-danger {
+    justify-content: space-around;
+}
+
+@keyframes slide-down {
+    from {margin-top: -100%}
+    to {margin-top: 100px;}
+} 

@@ -1,0 +1,186 @@
+body, html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    background: #f4f5f8;
+    color: #111;
+    overflow: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 13px;
+    font-family: notosans-regular;
+}
+
+.flex {
+    display: flex;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.items-center {
+    align-items: center;
+}
+.justify-center {
+    justify-content: center;
+}
+.justify-end {
+    justify-content: flex-end;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #b8bcc3;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+/* margin */
+.ml-auto {
+    margin-left: auto;
+}
+.ml-15 {
+    margin-left: 15px;
+}
+
+/* padding */
+.mr-6 {
+    padding-right: 6px;
+}
+
+/* display */
+.hide {
+    display: none;
+}
+
+/* icon */
+.background-image {
+    background: url('../assets/img/Sprites.64af8f61.svg') no-repeat;
+}
+.chevron-right {
+    background-position: -81px -361px;
+}
+.notification {
+    background-position: -788px -30px;
+}
+.user-default {
+    background-position: -352px -894px;
+}
+.chevron-down {
+    background-position: -1076px -32px;
+}
+.search-icon {
+    background-position: -992px -360px;
+}
+.refresh {
+    background-position: -424px -201px;
+    width: 24px;
+    height: 24px;
+}
+.refresh:hover {
+    background-position: -1098px -90px;
+}
+.checkbox-active {
+    background-position: -1224px -360px;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.arrow-up-blue {
+    background-position: -896px -359px;
+    width: 16px;
+    height: 16px;
+}
+
+.arrow-dropdown {
+    background-position: -560px -359px;
+    width: 16px;
+    height: 16px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.confirm {
+    background-position: -826px -456px;
+    width: 48px;
+    height: 48px;
+}
+
+.warning, .info{
+    background-position: -592px -456px;
+    width: 48px;
+    height: 48px;
+}
+
+.danger {
+    background-position: -24px -954px;
+    width: 48px;
+    height: 48px;
+}
+
+.help-icon {
+    background-position: -89px -144px;
+    width: 24px;
+    height: 24px;
+}
+
+.close {
+    background-position: -144px -144px;
+    width: 24px;
+    height: 24px;
+}
+
+.calender {
+    background-position: -120px -306px;
+}
+
+
+/* tooltip css */
+[data-title]{
+    position: relative;
+}
+[data-title]:hover::before{
+    content: attr(data-title);
+    position: absolute;
+    bottom: -26px;
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 2px;
+    background: #505050;
+    color: #ffffff;
+    font-size: 12px;
+    font-family: sans-serif;
+    white-space: nowrap;
+    z-index: 5;
+}
+
+/* width css */
+.w-50 {
+    width: 50% !important;
+}
+.w-40 {
+    width: 40% !important;
+}
+.w-60 {
+    width: 60% !important;
+}
+.w-25 {
+    width: 25% !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
