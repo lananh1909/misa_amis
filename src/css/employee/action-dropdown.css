@@ -1,7 +1,7 @@
 /* nút sửa */
 
 .edit-btn {
-    color: #0075c0;
+    color: #0075c0 !important;
     font-weight: 600;
     padding: 6px 0 6px 16px;
 }
@@ -15,13 +15,14 @@
 
 .action-btn {
     cursor: pointer;
+    color: #0075c0 !important;
 }
 
 .action-btn:active{
-    border: 1px solid #0075c0;
+    border: 1px solid #0075c0 !important;
 }
 .action-btn:focus{
-    border: 1px solid #0075c0;
+    border: 1px solid #0075c0 !important;
 }
 /* context  */
 .dropdown-content {

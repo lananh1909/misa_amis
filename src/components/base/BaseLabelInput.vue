@@ -1,7 +1,7 @@
 <template>
-    <div class="search-box" :class="{'error': error}" :title="error && errorMessage">
-        <label :for="id" class="input-label">{{textLabel}} <span :style="required?'color:red':'color:transparent'">*</span></label>
-        <input :tabindex="tabindex" :id="id" ref="input" :type="type" v-model="inputVal" @blur="validateInput()" @input="onInput()" @keydown="formatNumber($event)" :placeholder="placeholder">
+    <div class="search-box" :class="{'error': error}">
+        <label :title="labelTitle && labelTitle" :for="id" class="input-label">{{textLabel}} <span :style="required?'color:red':'color:transparent'">*</span></label>
+        <input :tabindex="tabindex" :title="error?errorMessage:null" :id="id" ref="input" :type="type" v-model="inputVal" @blur="validateInput()" @input="onInput()" @keydown="formatNumber($event)" :placeholder="placeholder">
     </div>
 </template>
 
@@ -12,13 +12,14 @@
 </style>
 
 <script>
-import FormatData from  '../../script/common/formatData';
+import Enumeration from '../../script/common/enumeration';
+import Resources from '../../script/common/resource-vi';
 export default {
     name: "BaseLabelInput",
     data() {
         return {
             error: false,
-            errorMessage: "Trường này không được để trống!"
+            errorMessage: Resources.ValidateError.Require.replace("%%", this.textLabel)
         }
     },
     props: {
@@ -50,6 +51,14 @@ export default {
         textLabel: {
             type: String,
             default: null
+        },
+        labelTitle: {
+            type: String,
+            default: null
+        },
+        maxLength: {
+            type: Number,
+            default: null
         }
     },
     computed: {
@@ -73,26 +82,23 @@ export default {
         validateInput(){
             if(this.required && !this.modelValue){
                 this.error = true;
-                this.errorMessage = this.textLabel + " không được để trống!";
+                this.errorMessage = Resources.ValidateError.Require.replace("%%", this.textLabel);
             } else if(this.modelValue){
                 let check = "";
-                switch(this.validate){
-                    case "email": {
-                        check = FormatData.validateEmail(this.modelValue);
-                        break;
-                    }
-                    case "phone": {
-                        check = FormatData.validatePhoneNumber(this.modelValue);
-                        break;
-                    }
-                    case "identity": {
-                        check = FormatData.validateIdentityNumber(this.modelValue);
-                        break;
-                    }
-                    case "taxcode": {
-                        check = FormatData.validateTaxCode(this.modelValue);
-                    }
-                }
+                // switch(this.validate){
+                //     case Enumeration.InputValidate.EMAIL: {
+                //         check = FormatData.validateEmail(this.modelValue);
+                //         break;
+                //     }
+                //     case Enumeration.InputValidate.PHONENUMBER: {
+                //         check = FormatData.validatePhoneNumber(this.modelValue);
+                //         break;
+                //     }
+                //     case Enumeration.InputValidate.IDENTITY: {
+                //         check = FormatData.validateIdentityNumber(this.modelValue);
+                //         break;
+                //     }
+                // }
                 if(check){
                     this.errorMessage = check;
                     this.error = true;
@@ -112,16 +118,20 @@ export default {
          * author: nlanh 20/8/2021
          */
         formatNumber(event){
-            switch(this.format){
-                case "number": {
-                    let charCode = event.which ? event.which: event.keyCode;
-                    if (charCode > 31 && (charCode < 48 || charCode > 57) && (charCode != 9) && (charCode < 96 || charCode > 105)) {
-                        event.preventDefault();
-                    } else {
-                        return true;
+            if(this.maxLength && this.inputVal.length >= this.maxLength){
+                if(event.which !== 8)
+                    event.preventDefault();
+            } else 
+                switch(this.format){
+                    case Enumeration.InputValidate.NUMBER: {
+                        let charCode = event.which ? event.which: event.keyCode;
+                        if (charCode > 31 && (charCode < 48 || charCode > 57) && (charCode != 9) && (charCode < 96 || charCode > 105)) {
+                            event.preventDefault();
+                        } else {
+                            return true;
+                        }
                     }
                 }
-            }
         },
         /**
          * Hàm giúp focus vào input

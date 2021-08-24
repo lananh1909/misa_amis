@@ -5,17 +5,17 @@
                 <thead>
                     <tr>
                         <th><BaseCheckbox @onchange="checkAll()" v-model="selectAll"/></th>
-                        <th>Mã nhân viên</th>
-                        <th>Tên nhân viên</th>
-                        <th>Giới tính</th>
-                        <th class="justify-center">Ngày sinh</th>
-                        <th>Số CMND</th>
-                        <th>Chức danh</th>
-                        <th>Tên đơn vị</th>
-                        <th>Số tài khoản</th>
-                        <th>Tên ngân hàng</th>
-                        <th class="before-last">Chi nhánh TK ngân hàng</th>
-                        <th class="justify-center">Chức năng</th>
+                        <th>{{Resources.TableColumn.EmployeeCode}}</th>
+                        <th>{{Resources.TableColumn.EmployeeName}}</th>
+                        <th>{{Resources.TableColumn.Gender}}</th>
+                        <th class="justify-center">{{Resources.TableColumn.DateOfBirth}}</th>
+                        <th>{{Resources.TableColumn.IdentityNumber}}</th>
+                        <th>{{Resources.TableColumn.Position}}</th>
+                        <th>{{Resources.TableColumn.DepartmentName}}</th>
+                        <th>{{Resources.TableColumn.BankAccountNumber}}</th>
+                        <th>{{Resources.TableColumn.BankName}}</th>
+                        <th class="before-last">{{Resources.TableColumn.BankBranchName}}</th>
+                        <th class="justify-center">{{Resources.TableColumn.Function}}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -84,6 +84,7 @@
 import BaseCheckbox from '../components/base/BaseCheckbox.vue';
 import FormatData from '../script/common/formatData';
 import ContextMenu from '../components/base/ContextMenu.vue';
+import Resources from '../script/common/resource-vi';
 export default {
   components: { BaseCheckbox, ContextMenu },
     name: "TableEmployee",
@@ -103,7 +104,8 @@ export default {
             selectAll: false,
             employee: null,
             isShow: false,
-            offsetContext: {}
+            offsetContext: {},
+            Resources: Resources
         }
     }, 
     methods: {
@@ -146,6 +148,7 @@ export default {
          * author: nlanh 20/8/2021
          */
         dbClickRow(item){
+            this.isShow = false;
             this.$emit("dbclick", item.EmployeeId);
         },
         /**

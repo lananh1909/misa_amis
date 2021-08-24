@@ -4,19 +4,19 @@
         <div class="my-modal-content" ref="employeeForm">
             <div class="my-modal-header flex">
                 <div class="my-modal-title flex items-center">
-                    <div class="text-title">Thông tin nhân viên</div>
+                    <div class="text-title">{{Resources.EmployeeForm.Title}}</div>
                     <div class="checkbox-title">
-                        <BaseCheckbox id="isCustomer" textLabel="Là khách hàng" v-model="employee.IsCustomer"/>
+                        <BaseCheckbox id="isCustomer" :textLabel="Resources.EmployeeForm.IsCustomer" v-model="employee.IsCustomer"/>
                     </div>
                     <div class="checkbox-title">
-                        <BaseCheckbox id="isProvider" textLabel="Là nhà cung cấp" v-model="employee.IsProvider"/>
+                        <BaseCheckbox id="isProvider" :textLabel="Resources.EmployeeForm.IsProvider" v-model="employee.IsProvider"/>
                     </div>
                 </div>
                 <div class="my-modal-close flex">
-                    <div class="close-icon" title="Giúp">
+                    <div class="close-icon" :title="Resources.EmployeeForm.TooltipHelp">
                         <div class="background-image help-icon"></div>
                     </div>
-                    <div class="close-icon" title="Đóng" @click="close()">
+                    <div class="close-icon" :title="Resources.EmployeeForm.TooltipClose" @click="close()">
                         <div class="background-image close"></div>
                     </div>
                 </div>
@@ -26,78 +26,80 @@
                     <div class="flex" style="padding-bottom:12px">
                         <div class="modal-form-left w-50 flex-column">
                             <div class="flex input-row">
+                                <div :tabindex="1" @focus="$refs.EmployeeCode.focusInput()"></div>
                                 <div class="w-40 mr-6">
-                                    <BaseLabelInput :tabindex="1" @keyup="change = true" :type="'text'" ref="EmployeeCode" v-model="employee.EmployeeCode" id="EmployeeCode" textLabel="Mã" :required="true"/>
+                                    <BaseLabelInput :tabindex="1" @keyup="change = true" :type="'text'" ref="EmployeeCode" :maxLength="20" v-model="employee.EmployeeCode" id="EmployeeCode" :textLabel="Resources.EmployeeForm.EmployeeCode" :required="true"/>
                                 </div>
                                 <div class="w-60">
-                                    <BaseLabelInput :tabindex="2" @keyup="change = true" :type="'text'" ref="EmployeeName" v-model="employee.EmployeeName" id="EmployeeName" textLabel="Tên" :required="true"/>
+                                    <BaseLabelInput :tabindex="2" @keyup="change = true" :type="'text'" ref="EmployeeName" :maxLength="100" v-model="employee.EmployeeName" id="EmployeeName" :textLabel="Resources.EmployeeForm.EmployeeName" :required="true"/>
                                 </div>
                             </div>
                             <div class="input-row">
-                                <BaseCombobox :tabindex="3" textLabel="Đơn vị" v-model="employee.DepartmentId" id="DepartmentId" ref="DepartmentId" :items="departments" :required="true"/>
+                                <BaseCombobox :tabindex="3" :textLabel="Resources.EmployeeForm.DepartmentName" v-model="employee.DepartmentId" id="DepartmentId" ref="DepartmentId" :items="departments" :required="true"/>
                             </div>
                             <div class="input-row">
-                                <BaseLabelInput :tabindex="4" @keyup="change = true" :type="'text'" ref="EmployeePosition" v-model="employee.EmployeePosition" id="EmployeePosition" :textLabel="'Chức danh'"/>
+                                <BaseLabelInput :tabindex="4" @keyup="change = true" :type="'text'" ref="EmployeePosition" :maxLength="255" v-model="employee.EmployeePosition" id="EmployeePosition" :textLabel="Resources.EmployeeForm.Position"/>
                             </div>
                         </div>
                         <div class="modal-form-right w-50 flex-column">
                             <div class="flex input-row">
                                 <div class="w-40 mr-6">
-                                    <BaseDatePicker :tabindex="5" id="DateOfBirth" :maxDate="new Date()" ref="DateOfBirth" @onchange="change = true" v-model="employee.DateOfBirth" :textLabel="'Ngày sinh'"/>
+                                    <BaseDatePicker :tabindex="5" id="DateOfBirth" :maxDate="new Date()" ref="DateOfBirth" @onchange="change = true" v-model="employee.DateOfBirth" :textLabel="Resources.EmployeeForm.DateOfBirth"/>
                                 </div>
                                 <div class="w-60">
-                                    <BaseRadioGroup :tabindex="6" @onchange="change = true" ref="Gender" v-model="employee.Gender" id="Gender" :options="genders" :textLabel="'Giới tính'"/>
+                                    <BaseRadioGroup :tabindex="6" @onchange="change = true" ref="Gender" v-model="employee.Gender" id="Gender" :options="genders" :textLabel="Resources.EmployeeForm.Gender"/>
                                 </div>
                             </div>
                             <div class="flex input-row">
                                 <div class="w-60 mr-6">
-                                    <BaseLabelInput :tabindex="8" @input="change = true" :format="'number'" ref="IdentityNumber" v-model="employee.IdentityNumber" id="IdentityNumber" :textLabel="'Số CMND'" :validate="'identity'"/>
+                                    <BaseLabelInput :tabindex="8" @input="change = true" :format="'number'" ref="IdentityNumber" :maxLength="20" v-model="employee.IdentityNumber" id="IdentityNumber" :textLabel="Resources.EmployeeForm.IdentityNumber" :validate="'identity'"/>
                                 </div>
                                 <div class="w-40">
-                                    <BaseDatePicker :tabindex="9" :maxDate="new Date()" @onchange="change = true" ref="IdentityDate" v-model="employee.IdentityDate" id="IdentityDate" :textLabel="'Ngày cấp'"/>
+                                    <BaseDatePicker :tabindex="9" :maxDate="new Date()" @onchange="change = true" ref="IdentityDate" v-model="employee.IdentityDate" id="IdentityDate" :textLabel="Resources.EmployeeForm.IdentityDate"/>
                                 </div>
                             </div>
                             <div class="input-row">
-                                <BaseLabelInput :tabindex="10" @keyup="change = true" :type="'text'" ref="IdentityPlace" v-model="employee.IdentityPlace" id="IdentityPlace" :textLabel="'Nơi cấp'"/>
+                                <BaseLabelInput :tabindex="10" @keyup="change = true" :type="'text'" ref="IdentityPlace" :maxLength="255" v-model="employee.IdentityPlace" id="IdentityPlace" :textLabel="Resources.EmployeeForm.IdentityPlace"/>
                             </div>
                         </div>
                     </div>
                     <div>
                         <div class="input-row">
-                            <BaseLabelInput :tabindex="11" @keyup="change = true" :type="'text'" ref="Address" v-model="employee.Address" id="Address" :textLabel="'Địa chỉ'"/>
+                            <BaseLabelInput :tabindex="11" @keyup="change = true" :type="'text'" ref="Address" :maxLength="255" v-model="employee.Address" id="Address" :textLabel="Resources.EmployeeForm.Address"/>
                         </div>
                         <div class="input-row flex">
                             <div class="w-25 mr-6">
-                                <BaseLabelInput :tabindex="12" @keyup="change = true" :format="'number'" ref="PhoneNumber" v-model="employee.PhoneNumber" id="PhoneNumber" :textLabel="'ĐT di động'" :validate="'phone'"/>
+                                <BaseLabelInput :tabindex="12" @keyup="change = true" :format="'number'" ref="PhoneNumber" :maxLength="20" v-model="employee.PhoneNumber" id="PhoneNumber" :labelTitle="Resources.EmployeeForm.FullPhoneNumber" :textLabel="Resources.EmployeeForm.PhoneNumber" :validate="'phone'"/>
                             </div>
                             <div class="w-25 mr-6">
-                                <BaseLabelInput :tabindex="13" @keyup="change = true" :format="'number'" ref="TelephoneNumber" v-model="employee.TelephoneNumber" id="TelephoneNumber" :textLabel="'ĐT cố định'"/>
+                                <BaseLabelInput :tabindex="13" @keyup="change = true" :format="'number'" ref="TelephoneNumber" :maxLength="20" v-model="employee.TelephoneNumber" id="TelephoneNumber" :labelTitle="Resources.EmployeeForm.FullTelephoneNumber" :textLabel="Resources.EmployeeForm.TelephoneNumber"/>
                             </div>
                             <div class="w-25">
-                                <BaseLabelInput :tabindex="14" @keyup="change = true" :type="'text'" ref="Email" v-model="employee.Email" id="Email" :textLabel="'Email'" :validate="'email'"/>
+                                <BaseLabelInput :tabindex="14" @keyup="change = true" :type="'text'" ref="Email" :maxLength="50" v-model="employee.Email" id="Email" :textLabel="Resources.EmployeeForm.Email" :validate="'email'"/>
                             </div>
                         </div>
                         <div class="input-row flex">
                             <div class="w-25 mr-6">
-                                <BaseLabelInput :tabindex="15" @keyup="change = true" :format="'number'" ref="BankAccountNumber" v-model="employee.BankAccountNumber" id="BankAccountNumber" :textLabel="'Tài khoản ngân hàng'"/>
+                                <BaseLabelInput :tabindex="15" @keyup="change = true" :format="'number'" :maxLength="20" ref="BankAccountNumber" v-model="employee.BankAccountNumber" id="BankAccountNumber" :textLabel="Resources.EmployeeForm.BankAccountNumber"/>
                             </div>
                             <div class="w-25 mr-6">
-                                <BaseLabelInput :tabindex="16" @keyup="change = true" :type="'text'" ref="BankName" v-model="employee.BankName" id="BankName" :textLabel="'Tên ngân hàng'"/>
+                                <BaseLabelInput :tabindex="16" @keyup="change = true" :type="'text'" :maxLength="255" ref="BankName" v-model="employee.BankName" id="BankName" :textLabel="Resources.EmployeeForm.BankName"/>
                             </div>
                             <div class="w-25">
-                                <BaseLabelInput :tabindex="17" @keyup="change = true" :type="'text'" ref="BankBranchName" v-model="employee.BankBranchName" id="BankBranchName" :textLabel="'Chi nhánh'"/>
+                                <BaseLabelInput :tabindex="17" @keyup="change = true" :type="'text'" :maxLength="255" ref="BankBranchName" v-model="employee.BankBranchName" id="BankBranchName" :textLabel="Resources.EmployeeForm.BankBranchName"/>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-line"></div>
                 <div class="my-modal-footer flex">
-                    <BaseButton tabindex="20" :type="mode.buttonType.DEFAULT" :text="'Hủy'" @onClick="close()" />
+                    <BaseButton tabindex="20" :type="mode.buttonType.DEFAULT" :text="Resources.EmployeeFormButton.Cancel" :title="Resources.EmployeeFormButton.Cancel" @onClick="close()" />
                     <div class="flex">
                         <div style="padding-right:10px">
-                            <BaseButton :type="mode.buttonType.DEFAULT" tabindex="18" :text="'Cất'" @onClick="submit(true)"/>
+                            <BaseButton :type="mode.buttonType.DEFAULT" tabindex="18" :text="Resources.EmployeeFormButton.Save" :title="Resources.EmployeeFormButton.Save" @onClick="submit(true)"/>
                         </div>
-                        <BaseButton tabindex="19" :type="mode.buttonType.SUCCESS" :text="'Cất và thêm'" @onClick="submit(false)"/>
+                        <BaseButton tabindex="19" :type="mode.buttonType.SUCCESS" :text="Resources.EmployeeFormButton.SaveAndCreate" :title="Resources.EmployeeFormButton.SaveAndCreate" @onClick="submit(false)"/>
+                        <div tabindex="21" @focus="$refs.EmployeeCode.focusInput()"></div>
                     </div>
                 </div>
             </div>
@@ -112,13 +114,14 @@ import BaseButton from '../components/base/BaseButton.vue'
 import BaseCheckbox from '../components/base/BaseCheckbox.vue'
 import BaseLabelInput from '../components/base/BaseLabelInput.vue'
 import BaseRadioGroup from '../components/base/BaseRadioGroup.vue'
-import Enumeration from '../script/common/Enumeration'
+import Enumeration from '../script/common/enumeration'
 import data from '../constant/data'
-import EmployeeAPI from '../api/component/employee/EmployeeAPI'
+import EmployeeAPI from '../api/component/employee/employee-api'
 import BaseDatePicker from '../components/base/BaseDatePicker.vue'
 import BaseLoading from '../components/base/BaseLoading.vue'
 import BaseCombobox from '../components/base/BaseCombobox.vue'
 import DragElement from '../components/base/DragElement.vue'
+import Resources from '../script/common/resource-vi'
 export default {
   components: { BaseCheckbox, BaseLabelInput, BaseButton, BaseRadioGroup, BaseDatePicker, BaseLoading, BaseCombobox, DragElement },
     name: "EmployeeForm",
@@ -130,7 +133,8 @@ export default {
             departments: [],
             change: false,
             isLoading: false,
-            validate: true
+            validate: true,
+            Resources: Resources
         }
     },
     props: {
@@ -171,10 +175,11 @@ export default {
                 if(this.formMode == Enumeration.formMode.EDIT){
                     EmployeeAPI.update(this.employeeId, this.employee).then(
                         (res) => {
-                            if(res.status == 200){
+                            if(res.status == Enumeration.StatusCode.SUCCESS){
                                 if(res.data.Success == true){
                                     this.change = false;
                                     this.$emit('success', isClose);
+                                    this.$emit('message', {type: Enumeration.toastMode.SUCCESS, message: Resources.Message.SuccessEditEmployee});
                                 } else {
                                     this.$emit('error-validate', {msg: res.data.UserMsg, data: res.data.Data});
                                 }
@@ -183,9 +188,11 @@ export default {
                         }
                     ).catch(
                         (error) => {
-                            if(error.response && error.status == 500){
+                            if(error.response && error.status ==Enumeration.StatusCode.SERVERERROR){
                                 let data = error.response.data
-                                this.$emit('error-validate', {msg: data.UserMsg});
+                                this.$emit('message', {type: Enumeration.toastMode.DANGER, message: data.UserMsg});
+                            } else {
+                                this.$emit('message', {type: Enumeration.toastMode.DANGER, message: Resources.Message.ServerErrorMessage});
                             }
                             this.isLoading = false;
                         }
@@ -194,10 +201,11 @@ export default {
                     //Nếu form mode là thêm hoặc nhân bản
                     EmployeeAPI.create(this.employee).then(
                         (res) => {
-                            if(res.status == 200 || res.status == 201){
+                            if(res.status == Enumeration.StatusCode.SUCCESS || res.status == Enumeration.StatusCode.SUCCESSINSERT){
                                 if(res.data.Success == true){
                                     this.change = false;
                                     this.$emit('success', isClose);
+                                    this.$emit('message', {type: Enumeration.toastMode.SUCCESS, message: Resources.Message.SuccessAddEmployee});
                                 } else {
                                     this.$emit('error-validate', {msg: res.data.UserMsg, data: res.data.Data});
                                 }
@@ -206,9 +214,11 @@ export default {
                         }
                     ).catch(
                         (error) => {
-                            if(error.response && error.status == 500){
+                            if(error.response && error.status ==Enumeration.StatusCode.SERVERERROR){
                                 let data = error.response.data
-                                this.$emit('error-validate', {msg: data.UserMsg});
+                                this.$emit('message', {type: Enumeration.toastMode.DANGER, message: data.UserMsg});
+                            } else {
+                                this.$emit('message', {type: Enumeration.toastMode.DANGER, message: Resources.Message.ServerErrorMessage});
                             }
                             this.isLoading = false;
                         }
@@ -229,7 +239,7 @@ export default {
             this.employee = {}
             EmployeeAPI.newEmployeeCode().then(
                 res => {
-                    if(res.status == 200){
+                    if(res.status == Enumeration.StatusCode.SUCCESS){
                         this.employee.EmployeeCode = res.data.Data;
                         this.$refs.EmployeeCode.focusInput();
                     }
@@ -252,7 +262,7 @@ export default {
         async getNewCode(){
             await EmployeeAPI.newEmployeeCode().then(
                     res => {
-                        if(res.status == 200){
+                        if(res.status == Enumeration.StatusCode.SUCCESS){
                             this.employee.EmployeeCode = res.data.Data;
                         }
                     }
@@ -265,7 +275,7 @@ export default {
         async getEmployeeById(){
             await EmployeeAPI.getById(this.employeeId).then(
                     res => {
-                        if(res.status == 200){
+                        if(res.status == Enumeration.StatusCode.SUCCESS){
                             this.employee = res.data.Data;
                         } else {
                             console.log(res);

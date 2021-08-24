@@ -1,5 +1,5 @@
 import axios from 'axios'
-import APIConfig from '../config/APIConfig'
+import APIConfig from '../config/api-config'
 
 var BaseAPIConfig = axios.create({
     baseURL: APIConfig,

@@ -1,7 +1,7 @@
 <template>
     <div class="date-search-box">
         <label :for="id" class="date-input-label">{{textLabel}} <span :style="required?'color:red':'color:transparent'">*</span></label>
-        <div class="my-custom-select" ref="combobox" :title="error && errorMessage"  :class="{'select-arrow-active': selecting, 'error': error}">
+        <div class="my-custom-select" ref="combobox" :title="error?errorMessage:null"  :class="{'select-arrow-active': selecting, 'error': error}">
             <input :tabindex="tabindex" type="text" :id="id" v-model="text" ref="inputBox" @input="autoComplete()" @focus="autoComplete()" @keydown="changeOption($event)" @blur="validateInput()">     
             <!-- <div class="clearBtn" v-if="text" @click="clearInput()"><img style="height:13px;" src="../../assets/icon/x.svg" alt=""></div>  -->
             <!-- <div class="errorMessage" v-if="error">
@@ -25,11 +25,12 @@
          
 </template>
 <script>
+import Resources from '../../script/common/resource-vi'
 export default {
     name: "BaseComboBox",
     data() {
         return {
-            errorMessage: "Dữ liệu " + this.textLabel +" không tồn tại trong hệ thống",
+            errorMessage: Resources.ComboboxError.replace("%%", this.textLabel),
             error: false,
             selecting: false,
             text: "",
@@ -190,7 +191,7 @@ export default {
         validateInput(){
             if(this.required && !this.value){
                 this.error = true;
-                this.errorMessage = this.textLabel + " không được để trống!";
+                this.errorMessage = Resources.ValidateError.Require.replace("%%", this.textLabel);
             }
             if(!this.selectIcon){
                 let find = false;
@@ -204,7 +205,7 @@ export default {
                 });
                 if(!find && this.text != ""){
                     this.error = true;
-                    this.errorMessage = "Dữ liệu " + this.textLabel + " không tồn tại trong hệ thống!";
+                    this.errorMessage = Resources.ComboboxError.replace("%%", this.textLabel);
                 }
             }
         },

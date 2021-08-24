@@ -11,34 +11,36 @@
           </div>
           <div class="dialog-line"></div>
           <div class="dialog-confirm-bottom">
+              <div :tabindex="mode.tabIndex.dialog" @focus="$refs['confirm-btn'].focus()"></div>
             <div class="bottom-warning flex" v-if="type == mode.dialogMode.WARNING">
                 <div class="footer-left">
-                    <BaseButton :tabindex="mode.tabIndex.dialog + 1" :text="unConfirmText" :type="mode.buttonType.DEFAULT" @onClick="unConfirm()"/>
+                    <BaseButton :tabindex="mode.tabIndex.dialog + 2" :text="unConfirmText" :type="mode.buttonType.DEFAULT" @onClick="unConfirm()"/>
                 </div>
                 <div class="footer-right ml-auto">
-                    <BaseButton :tabindex="mode.tabIndex.dialog" ref="confirm-btn" :text="confirmText" :type="mode.buttonType.SUCCESS" @onClick="confirm()"/>
+                    <BaseButton :tabindex="mode.tabIndex.dialog + 1" ref="confirm-btn" :text="confirmText" :type="mode.buttonType.SUCCESS" @onClick="confirm()"/>
                 </div>
             </div>
             <div class="bottom-info flex" v-else-if="type == mode.dialogMode.INFO">
                 <div class="footer-right ml-auto">
-                    <BaseButton :tabindex="mode.tabIndex.dialog" ref="confirm-btn" :text="confirmText" :type="mode.buttonType.SUCCESS" @onClick="confirm()"/>
+                    <BaseButton :tabindex="mode.tabIndex.dialog + 1" ref="confirm-btn" :text="confirmText" :type="mode.buttonType.SUCCESS" @onClick="confirm()"/>
                 </div>
             </div>
             <div class="bottom-confirm flex" v-else-if="type == mode.dialogMode.CONFIRM">
                 <div class="footer-left">
-                    <BaseButton :tabindex="mode.tabIndex.dialog + 2" :text="cancelText" :type="mode.buttonType.DEFAULT" @onClick="cancel()"/>
+                    <BaseButton :tabindex="mode.tabIndex.dialog + 3" :text="cancelText" :type="mode.buttonType.DEFAULT" @onClick="cancel()"/>
                 </div>
                 <div class="footer-right ml-auto flex">
                     <div style="margin-right: 8px">
-                        <BaseButton :tabindex="mode.tabIndex.dialog + 1" :text="unConfirmText" :type="mode.buttonType.DEFAULT" @onClick="unConfirm()"/>
+                        <BaseButton :tabindex="mode.tabIndex.dialog + 2" :text="unConfirmText" :type="mode.buttonType.DEFAULT" @onClick="unConfirm()"/>
                     </div>
-                    <BaseButton :tabindex="mode.tabIndex.dialog" ref="confirm-btn" :text="confirmText" :type="mode.buttonType.SUCCESS" @onClick="confirm()"/>
+                    <BaseButton :tabindex="mode.tabIndex.dialog + 1" ref="confirm-btn" :text="confirmText" :type="mode.buttonType.SUCCESS" @onClick="confirm()"/>
                 </div>
             </div>
 
             <div class="bottom-danger flex" v-else>
-                <BaseButton :tabindex="mode.tabIndex.dialog" ref="confirm-btn" :text="confirmText" :type="mode.buttonType.SUCCESS" @onClick="confirm()"/>
+                <BaseButton :tabindex="mode.tabIndex.dialog + 1" ref="confirm-btn" :text="confirmText" :type="mode.buttonType.SUCCESS" @onClick="confirm()"/>
             </div>
+            <div :tabindex="mode.tabIndex.dialog + 4" @focus="$refs['confirm-btn'].focus()"></div>
           </div>
       </div>
       </DragElement>
@@ -51,7 +53,7 @@
 </style>
 
 <script>
-import Enumeration from '../../script/common/Enumeration';
+import Enumeration from '../../script/common/enumeration';
 import BaseButton from './BaseButton.vue';
 import DragElement from './DragElement.vue';
 export default {

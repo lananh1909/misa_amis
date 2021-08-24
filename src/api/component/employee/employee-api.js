@@ -1,5 +1,5 @@
-import BaseAPI from '../../base/BaseAPI'
-import BaseAPIConfig from '../../base/BaseAPIConfig'
+import BaseAPI from '../../base/base-api'
+import BaseAPIConfig from '../../base/base-api-config'
 class EmployeeAPI extends BaseAPI{
     constructor(){
         super();

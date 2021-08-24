@@ -1,0 +1,41 @@
+.message-container {
+    display: flex;
+    height: 60px;
+    width: 300px;
+    border-radius: 4px;
+    box-shadow: 0 3px 6px rgba(214, 141, 141, 0.16);
+    background: #fff;
+    align-items: center;
+    margin-bottom: 15px;
+    animation-name: slide-right;
+    /* animation-fill-mode: forwards; */
+    animation-duration: 0.5s;
+}
+
+@keyframes slide-right {
+    from {margin-right: -300px}
+    to {margin-right: 0;}
+}
+
+.toast-icon {
+    border-radius: 50%;
+    color: #FFF;
+    text-align: center;
+    padding-top: 6px;
+    font-size: 13px;
+    margin-left: 16px;
+    margin-right: 10px;
+}
+
+.closeToast {
+    margin-left: auto;
+    margin-right: 6px;
+}
+
+.message-container.success {
+    box-shadow: 0 4px 8px 0 rgba(0, 255, 0, 0.2), 0 6px 20px 0 rgba(0, 255, 0, 0.2);
+}
+
+.message-container.danger {
+    box-shadow: 0 4px 8px 0 rgba(255, 0, 0, 0.2), 0 6px 20px 0 rgba(255, 0, 0, 0.2);
+}

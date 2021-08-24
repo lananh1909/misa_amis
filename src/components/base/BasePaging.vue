@@ -1,12 +1,12 @@
 <template>
     <div class="paging-container flex items-center">
-        <div class="paging-left">Tổng số: <b>{{totalRecord}}</b> bản ghi</div>
+        <div class="paging-left">{{Resources.Paging.Total}}: <b>{{totalRecord}}</b> {{Resources.Paging.Record}}</div>
         <div class="paging-right ml-auto flex items-center">
             <div class="record-in-page">
                 <BaseDropdown :bottom="false" :options="pageSizeOptions" @onchange="onChangePageSize($event)" :defaultIndex="1"/>
             </div>
             <div class="page-number flex">
-                <div class="change-page prev" :class="{'disable': currentPage === 1}" @click="prev()">Trước</div>
+                <div class="change-page prev" :class="{'disable': currentPage === 1}" @click="prev()">{{Resources.Paging.Prev}}</div>
                 <div class="pages">
                     <div class="little flex" v-if="totalPage <= 7">
                         <div class="pageNum" v-for="page in totalPage" :key="page" :class="{'current-page': currentPage == page}" @click="changePage(page)">{{page}}</div>
@@ -19,7 +19,7 @@
                         <div class="pageNum" v-if="totalPage > 1" :class="{'current-page': currentPage == totalPage}" @click="changePage(totalPage)">{{totalPage}}</div>
                     </div>
                 </div>
-                <div class="change-page next" :class="{'disable': currentPage === totalPage}" @click="next()">Sau</div>
+                <div class="change-page next" :class="{'disable': currentPage === totalPage}" @click="next()">{{Resources.Paging.Next}}</div>
             </div>
         </div>
     </div>
@@ -27,6 +27,7 @@
 <script>
 import BaseDropdown from './BaseDropdown.vue'
 import data from '../../constant/data'
+import Resources from '../../script/common/resource-vi'
 export default {
   components: { BaseDropdown },
     name: "BasePaging",
@@ -47,6 +48,7 @@ export default {
     data() {
         return {
             pageSizeOptions: [],
+            Resources: Resources
         }
     },
     computed: {

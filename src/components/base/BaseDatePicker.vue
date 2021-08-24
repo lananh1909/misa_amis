@@ -49,9 +49,11 @@ export default {
             default: false
         },
         maxDate: {
+            type: Date,
             default: null
         },
         minDate: {
+            type: Date,
             default: null
         },
         tabindex: {
@@ -94,8 +96,15 @@ export default {
                     if (isNaN(d.getTime())) {
                         this.date = null;
                     } else {
-                        this.datepick = formatData.formatDateOutput(d);
-                        this.date = d.toLocaleDateString('en-GB');
+                        if(this.maxDate && d > this.maxDate){
+                            this.date = null;
+                        } else if(this.minDate && d < this.minDate){
+                            this.date = null;
+                        } else {
+                            this.datepick = formatData.formatDateOutput(d);
+                            this.date = d.toLocaleDateString('en-GB');
+                        }
+                        
                     }
                 } else {
                     this.date = null;

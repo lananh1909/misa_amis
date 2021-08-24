@@ -63,8 +63,15 @@
 .select-items div:hover, .same-as-selected div{
     background-color: #ebedf0;
 }
+
+.select-items div:hover .select-item {
+    color: #35bf22 !important;
+}
 .hover {
     background-color: #ebedf0 !important;
+}
+.hover .select-item {
+    color: #35bf22 !important;
 }
 .same-as-selected .select-item{
     color: #35bf22 !important;

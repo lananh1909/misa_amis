@@ -90,8 +90,8 @@
     from {margin-top: -100%}
     to {margin-top: 24px;}
 } 
-@media only screen and (max-height: 768px) {
+/* @media only screen and (max-height: 768px) {
     .my-modal-content {
         height: 625px;
     }
-}
+} */

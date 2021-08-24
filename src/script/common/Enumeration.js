@@ -30,7 +30,49 @@ Enumeration.buttonType = {
  * tabindex của dialog
  */
 Enumeration.tabIndex = {
-    dialog: 21
+    dialog: 22
+}
+
+/**
+ * Kiểu toast message
+ */
+Enumeration.toastMode = {
+    SUCCESS: "success",
+    DANGER: "danger",
+    INFO: "info",
+    WARNING: "warning"
+}
+/**
+ * Mã code tự định nghĩa do server trả về
+ */
+Enumeration.MISAStatusCode = {
+    MISAInvalidInput : 40,
+    MISAInvalidValidate : 41,
+    MISAInvalidInputRequired : 42,
+    MISAInvalidInputUnique : 43,
+    MISAServerError : 50,
+    MISASuccess : 20,
+    MISANotFound : 44
+}
+/**
+ * Http status code
+ */
+Enumeration.StatusCode = {
+    //Thành công
+    SUCCESS: 200,
+    //Thêm thành công
+    SUCCESSINSERT: 201,
+    //Lỗi server
+    SERVERERROR: 500,
+    //Không tìm thấy tài nguyên
+    NOTFOUND: 404
+}
+
+Enumeration.InputValidate = {
+    EMAIL: "email",
+    PHONENUMBER: "phone",
+    IDENTITY: "identity",
+    NUMBER: "number"
 }
 
 export default Enumeration;

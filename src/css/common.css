@@ -14,6 +14,7 @@ body {
     box-sizing: border-box;
     font-size: 13px;
     font-family: notosans-regular;
+    color: #111;
 }
 
 .flex {
@@ -123,6 +124,12 @@ body {
 
 .danger {
     background-position: -24px -954px;
+    width: 48px;
+    height: 48px;
+}
+
+.success {
+    background-position: -984px -454px;
     width: 48px;
     height: 48px;
 }

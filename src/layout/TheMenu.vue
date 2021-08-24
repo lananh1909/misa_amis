@@ -8,105 +8,111 @@
         </div>
         <ul class="menu-items">
             <router-link to="/employee">
-                <li class="menu-item flex" data-title="Tổng quan">
+                <li class="menu-item flex" :data-title="Resources.Menu.DashBoard">
                     <div class="icon dash-board"></div>
                     <div class="title">
-                        Tổng quan
+                        {{Resources.Menu.DashBoard}}
                     </div>
                 </li>
             </router-link>
             <router-link to="/test">
-                <li class="menu-item flex" data-title="Tiền mặt">
+                <li class="menu-item flex" :data-title="Resources.Menu.Cash">
                     <div class="icon cash"></div>
                     <div class="title">
-                        Tiền mặt
+                        {{Resources.Menu.Cash}}
                     </div>
                 </li>
             </router-link>
-            <li class="menu-item flex" data-title="Tiền gửi">
+            <li class="menu-item flex" :data-title="Resources.Menu.Bank">
                 <div class="icon bank"></div>
                 <div class="title">
-                    Tiền gửi
+                    {{Resources.Menu.Bank}}
                 </div>
             </li>
-            <li class="menu-item flex" data-title="Mua hàng">
+            <li class="menu-item flex" :data-title="Resources.Menu.Buy">
                 <div class="icon buy"></div>
                 <div class="title">
-                    Mua hàng
+                    {{Resources.Menu.Buy}}
                 </div>
             </li>
-            <li class="menu-item flex" data-title="Bán hàng">
+            <li class="menu-item flex" :data-title="Resources.Menu.Sell">
                 <div class="icon sell"></div>
                 <div class="title">
-                    Bán hàng
+                    {{Resources.Menu.Sell}}
                 </div>
             </li>
-            <li class="menu-item flex" data-title="Quản lý đơn">
+            <li class="menu-item flex" :data-title="Resources.Menu.Invoice">
                 <div class="icon invoice"></div>
                 <div class="title">
-                    Quản lý đơn
+                    {{Resources.Menu.Invoice}}
                 </div>
             </li>
-            <li class="menu-item flex" data-title="Kho">
+            <li class="menu-item flex" :data-title="Resources.Menu.Stock">
                 <div class="icon stock"></div>
                 <div class="title">
-                    Kho
+                    {{Resources.Menu.Stock}}
                 </div>
             </li>
-            <li class="menu-item flex" data-title="Công cụ dụng cụ">
+            <li class="menu-item flex" :data-title="Resources.Menu.Tool">
                 <div class="icon tool"></div>
                 <div class="title">
-                    Công cụ dụng cụ
+                    {{Resources.Menu.Tool}}
                 </div>
             </li>
-            <li class="menu-item flex" data-title="Tài sản cố định">
+            <li class="menu-item flex" :data-title="Resources.Menu.FixedAssets">
                 <div class="icon fixed-assets"></div>
                 <div class="title">
-                    Tài sản cố định
+                    {{Resources.Menu.FixedAssets}}
                 </div>
             </li>
-            <li class="menu-item flex" data-title="Thuế">
+            <li class="menu-item flex" :data-title="Resources.Menu.Tax">
                 <div class="icon tax"></div>
                 <div class="title">
-                    Thuế
+                    {{Resources.Menu.Tax}}
                 </div>
             </li>
-            <li class="menu-item flex" data-title="Giá thành">
+            <li class="menu-item flex" :data-title="Resources.Menu.Price">
                 <div class="icon price"></div>
                 <div class="title">
-                    Giá thành
+                    {{Resources.Menu.Price}}
                 </div>
             </li>
-            <li class="menu-item flex" data-title="Tổng hợp">
+            <li class="menu-item flex" :data-title="Resources.Menu.General">
                 <div class="icon general"></div>
                 <div class="title">
-                    Tổng hợp
+                    {{Resources.Menu.General}}
                 </div>
             </li>
-            <li class="menu-item flex" data-title="Ngân sách">
+            <li class="menu-item flex" :data-title="Resources.Menu.Budget">
                 <div class="icon budget"></div>
                 <div class="title">
-                    Ngân sách
+                    {{Resources.Menu.Budget}}
                 </div>
             </li>
-            <li class="menu-item flex" data-title="Báo cáo">
+            <li class="menu-item flex" :data-title="Resources.Menu.Report">
                 <div class="icon report"></div>
                 <div class="title">
-                    Báo cáo
+                    {{Resources.Menu.Report}}
                 </div>
             </li>
-            <li class="menu-item flex" data-title="Phân tích tài chính">
+            <li class="menu-item flex" :data-title="Resources.Menu.Finance">
                 <div class="icon finance"></div>
                 <div class="title">
-                    Phân tích tài chính
+                    {{Resources.Menu.Finance}}
                 </div>
             </li>
         </ul>
     </div>
 </template>
 <script>
+import Resources from '../script/common/resource-vi'
 export default {
-    
+    name: "TheMenu",
+    data() {
+        return {
+            Resources: Resources
+        }
+    },
 }
 </script>
 <style scoped>

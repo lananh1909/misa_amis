@@ -1,10 +1,10 @@
 <template>
-    <div ref="btn" class="my-btn" :class="type" @click="onClick()" @keydown="enterEvent($event)">
+    <div ref="btn" class="my-btn" :class="type" @click="onClick()" @keydown.enter="onClick()">
         {{text}}
     </div>
 </template>
 <script>
-import Enumeration from '../../script/common/Enumeration'
+import Enumeration from '../../script/common/enumeration'
 export default {
     name: "BaseButton",
     props: {
@@ -31,11 +31,6 @@ export default {
          */
         focus(){
             this.$refs.btn.focus();
-        },
-        enterEvent(e){
-            if(e.which == 13){
-                this.onClick();
-            }
         }
     },
 }

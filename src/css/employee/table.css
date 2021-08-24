@@ -1,11 +1,11 @@
 .table-employee {
     padding-left: 20px;
-    padding-right: 30px;
+    padding-right: 20px;
 }
 .table-container {
     
     overflow: scroll;
-    max-height: calc(100vh - 248px);
+    max-height: calc(100vh - 258px);
     /* width: 100%; */
 }
 

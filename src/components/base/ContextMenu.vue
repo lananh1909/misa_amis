@@ -1,16 +1,18 @@
 <template>
     <div ref="dropdown" class="dropdown-content">
-        <div class="dropdown-item" @click="replication()">Nhân bản</div>
-        <div class="dropdown-item" @click="clickDelete()">Xóa</div>
-        <div class="dropdown-item" @click="clickUse()">Sử dụng</div>
+        <div class="dropdown-item" @click="replication()">{{Resources.EmployeeContext.Replication}}</div>
+        <div class="dropdown-item" @click="clickDelete()">{{Resources.EmployeeContext.Delete}}</div>
+        <div class="dropdown-item" @click="clickUse()">{{Resources.EmployeeContext.StopUse}}</div>
     </div>
 </template>
 <script>
+import Resources from '../../script/common/resource-vi'
 export default {
     name: "ContextMenu",
     data() {
         return {
-            isShow: true
+            isShow: true,
+            Resources: Resources
         }
     },
     methods: {
@@ -20,11 +22,11 @@ export default {
          */
         toggleDropdown(offset){
             let top = Math.round(offset.top * 10) / 10 + 32;
-            let bottom = Math.round((window.innerHeight - offset.top) * 10) / 10 + 5;
-            let left = Math.round(offset.left * 10) / 10 - 60;
+            let bottom = Math.round((window.innerHeight - offset.top) * 10) / 10 - 8;
+            let left = Math.round(offset.left * 10) / 10 - 85;
             let dropdown = this.$refs['dropdown'];
             let style = "";
-            if(bottom < 100){
+            if(bottom < 110){
                 style = "bottom: " + bottom + "px; left: " + left + "px";
             } else {
                 style = "top: " + top + "px; left: " + left + "px";

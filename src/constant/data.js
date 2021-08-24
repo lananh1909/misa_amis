@@ -1,3 +1,5 @@
+import Resources from '../script/common/resource-vi'
+
 const data = {
     /**
      * Giới tính
@@ -5,15 +7,15 @@ const data = {
     genders: [
         {
             value: 1,
-            text: "Nam"
+            text: Resources.Gender.Male
         },
         {
             value: 0,
-            text: "Nữ"
+            text: Resources.Gender.Female
         },
         {
             value: 2,
-            text: "Khác"
+            text: Resources.Gender.Other
         }
     ],
     /**
@@ -22,23 +24,23 @@ const data = {
     pageSizeOptions: [
         {
             value: 10,
-            text: "10 bản ghi trên 1 trang"
+            text: Resources.PageSizeOptions[10]
         },
         {
             value: 20,
-            text: "20 bản ghi trên 1 trang"
+            text: Resources.PageSizeOptions[20]
         },
         {
             value: 30,
-            text: "30 bản ghi trên 1 trang"
+            text: Resources.PageSizeOptions[30]
         },
         {
             value: 50,
-            text: "50 bản ghi trên 1 trang"
+            text: Resources.PageSizeOptions[50]
         },
         {
             value: 100,
-            text: "100 bản ghi trên 1 trang"
+            text: Resources.PageSizeOptions[100]
         },
     ]
 }
